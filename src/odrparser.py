@@ -18,8 +18,9 @@ class ODRParser:
                 jd["Role Career Level To"] = 1
             if jd.get("Role Career Level From") and jd["Role Career Level From"] == cfg.AL:
                 jd["Role Career Level From"] = 1
-            if level > int(jd["Role Career Level From"]) or level < int(jd["Role Career Level To"]):
-                continue
+            if str(level).lower() != "any":
+                if level > int(jd["Role Career Level From"]) or level < int(jd["Role Career Level To"]):
+                    continue
             for kw in keyword_list:
                 if jd.get("Role Description") and kw.lower() in jd["Role Description"].lower() or \
                         jd.get("Role Title") and kw.lower() in jd["Role Title"].lower() or \
