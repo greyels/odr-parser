@@ -12,7 +12,7 @@ class ODRParser:
             jds = json.load(odr)
         self.jds_number = len(jds)
         for jd in jds:
-            if jd.get("Role Language") and no_language.lower() in jd["Role Language"].lower():
+            if no_language and jd.get("Role Language") and no_language.lower() in jd["Role Language"].lower():
                 continue
             if jd.get("Role Career Level To") and jd["Role Career Level To"] == cfg.AL:
                 jd["Role Career Level To"] = 1
