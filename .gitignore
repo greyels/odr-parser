@@ -1,4 +1,4 @@
 reports/
-config/
+config/config.py
 .idea/
 *.json
